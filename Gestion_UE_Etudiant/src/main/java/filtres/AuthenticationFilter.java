@@ -13,6 +13,7 @@ import javax.ws.rs.ext.Provider;
 import java.io.IOException;
 import java.security.Key;
 
+
 @Secured
 @Provider
 @Priority(Priorities.AUTHENTICATION)
@@ -79,7 +80,8 @@ public class AuthenticationFilter implements ContainerRequestFilter {
 
             // Validate the token
             String keyString = "simplekey";
-            Key key = new SecretKeySpec(keyString.getBytes(), 0, keyString.getBytes().length, "DES");
+            Key key = new SecretKeySpec(keyString.getBytes(), 0,
+                    keyString.getBytes().length, "DES");
             System.out.println("the key is : " + key);
             System.out.println("test:" + Jwts.parser().setSigningKey(key).parseClaimsJws(token));
             System.out.println("#### valid token : " + token);

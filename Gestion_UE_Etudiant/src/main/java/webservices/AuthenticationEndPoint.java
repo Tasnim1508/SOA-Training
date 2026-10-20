@@ -1,5 +1,6 @@
 package webservices;
 
+
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
@@ -59,6 +60,7 @@ public class AuthenticationEndPoint {
             return Response.ok(token).build();
 
         } catch (Exception e) {
+            e.printStackTrace();
             return Response.status(Response.Status.FORBIDDEN).build();
         }
     }
